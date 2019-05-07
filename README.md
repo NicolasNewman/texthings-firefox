@@ -1,8 +1,8 @@
-TeX All the Things
-==================
+TeX All the Things - Firefox
+============================
 
-Chrome extension which typesets LaTeX in webpages using [MathJax](https://github.com/mathjax/MathJax).
-Download the latest version [here](https://chrome.google.com/webstore/detail/tex-all-the-things/cbimabofgmfdkicghcadidpemeenbffn)!
+A Firefox extension which typesets LaTeX in webpages using [MathJax](https://github.com/mathjax/MathJax).
+Download the latest version [here]//TODO
 
 
 Contributing
