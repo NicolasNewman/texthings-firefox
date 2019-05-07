@@ -1,7 +1,7 @@
 // Handle a click to the toolbar icon
-chrome.browserAction.onClicked.addListener(function(tab) {
+browser.browserAction.onClicked.addListener(function(tab) {
   if (get_option('enabled')) {
-    chrome.browserAction.setIcon({
+    browser.browserAction.setIcon({
       path: {
       "38": "img/browser-disabled38.png",
       "19": "img/browser-disabled19.png"
@@ -9,7 +9,7 @@ chrome.browserAction.onClicked.addListener(function(tab) {
     });
     set_option('enabled', false);
   } else {
-    chrome.browserAction.setIcon({
+    browser.browserAction.setIcon({
       path: {
       "38": "img/browser38.png",
       "19": "img/browser19.png"
@@ -20,7 +20,7 @@ chrome.browserAction.onClicked.addListener(function(tab) {
 });
 
 // Set the headers to allow the MathJax CDN if we're typesetting this page
-chrome.webRequest.onHeadersReceived.addListener(function(details) {
+browser.webRequest.onHeadersReceived.addListener(function(details) {
     var hostname = get_hostname(details.url);
     if (!should_texify(hostname)) {
       return;
@@ -54,7 +54,7 @@ chrome.webRequest.onHeadersReceived.addListener(function(details) {
 );
 
 // Respond to requests from other scripts
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+browser.runtime.onMessage.addListener(function(request, sender, sendResponse) {
   if (request.method == 'shouldTeXify') {
     sendResponse({answer: should_texify(request.host),
                   delimiters: get_delimiters(),

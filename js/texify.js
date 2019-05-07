@@ -1,4 +1,4 @@
-chrome.runtime.sendMessage({method: 'shouldTeXify', host: location.host},
+browser.runtime.sendMessage({method: 'shouldTeXify', host: location.host},
   function(response) {
     if (JSON.parse(response.answer)) {
 
@@ -31,7 +31,7 @@ chrome.runtime.sendMessage({method: 'shouldTeXify', host: location.host},
       var pageScript = document.createElement('script');
       pageScript.id = 'texAllTheThingsPageScript';
       pageScript.type = 'text/javascript';
-      pageScript.src = chrome.extension.getURL('js/pageScript.js');
+      pageScript.src = browser.extension.getURL('js/pageScript.js');
       pageScript.setAttribute('inlineMath', JSON.stringify(inline_delimiters));
       pageScript.setAttribute('displayMath', JSON.stringify(display_delimiters));
       pageScript.setAttribute('skipTags', JSON.stringify(response.skip_tags));
